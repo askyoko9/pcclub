@@ -1,0 +1,2216 @@
+$yellow: #c0d500
+$white: #e3e2e2
+$text: #2c2c2c    
+$gray: #848484 
+$gray-line: #676767
+$gray-form: #9f9f9f
+@font-face 
+    font-family: 'Monitorica'
+    src: url('../fonts/Monitorica-Bd.woff') format('woff')
+    font-weight: 600
+    font-style: normal
+@font-face 
+    font-family: 'Monitorica'
+    src: url('../fonts/Monitorica-BdIt.woff') format('woff')
+    font-weight: 600
+    font-style: italic
+@font-face 
+    font-family: 'Monitorica'
+    src: url('../fonts/Monitorica-It.woff') format('woff')
+    font-weight: normal
+    font-style: italic
+@font-face 
+    font-family: 'Monitorica'
+    src: url('../fonts/Monitorica-Rg.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+@font-face 
+    font-family: 'Helvetica'
+    src: url('../fonts/helvetica-bold.woff') format('woff')
+    font-weight: 600
+    font-style: normal
+@font-face 
+    font-family: 'PlayfairDisplay'
+    src: url('../fonts/PlayfairDisplay-Regular.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+$ibm35: italic 600 1.84vw Monitorica
+$nrm35: normal 400 1.84vw Monitorica
+$irm35: italic 400 1.84vw Monitorica
+$ibm80: italic 600 4.2vw Monitorica
+$ibm65: italic 600 3.4vw Monitorica
+$ibm65: italic 600 3.4vw Monitorica
+$irm26: italic 400 1.37vw Monitorica
+$ibm26: italic 600 1.37vw Monitorica
+$nrm26: normal 400 1.37vw Monitorica
+$ibm80: italic 600 4.2vw Monitorica
+$ibm45: italic 600 2.36vw Monitorica
+$nrm20: normal 400 1.05vw Monitorica
+$nrm30: normal 400 1.5vw Monitorica
+a
+    text-decoration: none
+    color: $white
+ul
+    list-style-type: none
+input:active, input:focus
+    outline: none !important
+    outline-offset: 0 !important
+.container
+    max-width: 1920px
+    margin: 0 auto 
+.flex-column
+    display: flex
+    flex-direction: column
+    align-items: center 
+.flex-row 
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+header.block1
+    background-image: url('../img/fon1.jpg')
+    background-size: cover
+    background-position: top center
+    height: 100vh
+    min-height: 70vw
+.block2
+    background-image: url('../img/senna.jpg')
+    background-size: cover
+    background-position: top left
+    min-height: 55vw
+.block3
+    background-image: url('../img/fon2.jpg')
+    background-size: cover
+    background-position: top center
+    padding-bottom: 11vh
+.block4
+    background-image: url('../img/alonso.jpg')
+    background-size: cover
+    background-position: top right
+    min-height: 55vw
+.block6
+    background-image: url('../img/hamilton.jpg')
+    background-size: cover
+    background-position: top left
+    min-height: 55vw
+.block7, .block9, .block5
+    background-image: url('../img/fon3.jpg')
+    background-size: cover
+    background-position: top center
+.block8
+    background-image: url('../img/kulthard.jpg')
+    background-size: cover
+    background-position: top right
+    min-height: 55vw
+.block10
+    background-color: #f3f3f4
+    height: 100vh 
+.block_form
+    background-image: url('../img/fon_form.jpg')
+    background-size: cover
+    background-position: top center
+.footer
+    margin: 0 17.5vw
+.dark
+    color: $white
+.light
+    color: $text
+.after.disabled, .before.disabled
+    opacity: 0.5
+header.block1
+    .block1_content
+        display: flex
+        flex-direction: column
+        color: $white
+        align-items: center
+        .logo
+            margin-top: 8vh
+            font: $ibm35
+            span
+                margin-top: 5px
+            img
+                width: 19.2vw
+                fill: $white
+        .message    
+            margin-top: 12%
+            .b_message
+                font: $ibm80
+            .s_message
+                font: $ibm65
+                span
+                    color: $yellow
+    img.yellow_line
+        margin: 6.84vh auto 0 auto
+        display: block
+        width: 0.21vw
+        height: 16vh
+    nav.menu
+        font: $nrm30
+        color: $white
+        position: fixed
+        z-index: 50
+        height: 25.3vh
+        top: 0
+        bottom: 0
+        right: 18%
+        width: 240px
+        margin: auto 0
+        transition: all 0.5s
+        ul
+            height: 25.3vh
+            margin: 0
+            justify-content: space-between
+            align-items: flex-end
+            opacity: 0.5
+        li
+            .menu_text
+                display: none
+        ul:hover 
+            opacity: 1
+            .menu_text
+                display: inline-block
+        a
+            color: $gray
+            cursor: pointer
+            transition: all 0.5s ease-in-out
+
+        a.active, a.active:hover
+            color: $yellow
+        a:hover
+            color: $white
+    nav.menu.fixed
+        right: 5%
+        transition: all 0.5s
+    /*media*/
+    @media (max-width: 1366px)
+        .block1_content .logo
+            font-size: 2.2vw
+        .block1_content .logo img
+            width: 23vw
+        .block1_content .message .b_message
+            font-size: 5vw
+        .block1_content .message .s_message
+            font-size: 4vw
+        nav.menu ul
+            height: 30vh
+        nav.menu
+            right: 14%
+            font-size: 1.8vw
+    @media (max-width: 1024px)
+        .block1_content .logo
+            font-size: 2.64vw
+        .block1_content .logo img
+            width: 27vw
+        .block1_content .message .b_message
+            font-size: 6vw
+        .block1_content .message .s_message
+            font-size: 4.9vw
+        nav.menu
+            right: 10%
+            font-size: 2.16vw
+    @media (max-width: 768px)
+        background-image: url('../img/fon1-m.jpg')
+        nav.menu ul
+            height: 26vh
+        .block1_content .logo
+            font-size: 3.12vw
+        .block1_content .logo img
+            width: 32vw
+        .block1_content .message .b_message
+            font-size: 7.2vw
+        .block1_content .message .s_message
+            font-size: 5.9vw
+        nav.menu
+            font-size: 2.6vw
+            right: 49%
+            margin: 0
+            top: auto
+            bottom: 12%
+            transition: all 0.5s
+        nav.menu.fixed
+            right: 5%
+            transition: all 0.5s
+    @media (max-width: 768px) and (max-height: 1000px)
+        nav.menu
+            display: none
+    @media (max-width: 420px) 
+        nav.menu 
+            display: none
+        .block1_content .logo
+            font-size: 6.24vw
+        .block1_content .logo img
+            width: 64vw
+        .block1_content .message
+            margin-top: 20%
+        .block1_content .message .b_message
+            font-size: 11vw 
+        .block1_content .message .s_message
+            font-size: 11vw
+        img.yellow_line
+            width: 3px
+.block2
+    .quote
+        opacity: 0
+        font: $ibm65
+        margin-top: 17%
+        margin-bottom: 4%
+    .quote_wrap
+        position: relative
+        align-items: flex-start
+        margin-left: 17%
+        padding-bottom: 10%
+    .name
+        opacity: 0
+        font: $irm35
+        color: $gray
+        text-align: right
+        align-self: flex-start
+        margin-bottom: 1%
+        width: 33%
+    .who
+        opacity: 0
+        font: $irm26
+        color: $gray
+        text-align: right
+        align-self: flex-start
+        width: 33%
+    /*media*/
+    @media (max-width: 1366px)
+        .quote
+            font-size: 4.08vw
+        .name
+            font-size: 2.2vw
+            width: 37%
+        .who
+            font-size: 1.64vw
+            width: 37%
+        .quote_wrap
+            margin-left: 12%
+    @media (max-width: 1024px)
+        .quote
+            font-size: 4.9vw
+            margin-top: 8%
+        .name
+            font-size: 2.65vw
+            width: 42%
+        .who
+            font-size: 1.97vw
+            width: 42%
+        .quote_wrap
+            margin-left: 8%
+    @media (max-width: 768px)
+        .quote
+            font-size: 5.87vw
+            margin-top: 11%
+        .who
+            font-size: 2.37vw
+            width: 50%
+        .name
+            font-size: 3.18vw
+            width: 50%
+        .quote_wrap
+            margin-left: 8%
+            padding-bottom: 21%
+    @media (max-width: 420px) 
+        background-position: 87% 0%
+        background-size: 140vh
+        height: 160vh
+        background-color: #f3f3f4
+        background-repeat: no-repeat
+        .quote
+            font-size: 10vw
+            margin-top: 6vh
+            margin-bottom: 8vh
+        .who
+            font-size: 6vw
+            width: 90%
+        .name
+            font-size: 8vw
+            width: 90%
+            color: $text
+        .quote_wrap
+            height: 100vh
+            margin-left: 8%
+            padding-bottom: 21%
+            padding-top: 85vh
+.block3
+    .bl3_message 
+        padding-top: 8.7vh
+        text-align: center
+        .header
+            font: $ibm80  
+            color: #fff     
+        .bspan
+            margin-top: 2vh
+            font: $ibm65
+        .sspan
+            font: $ibm35
+            margin-top: 2vh
+            padding: 0 35vw
+            span
+                color: $yellow
+    .line
+        height: 1px
+        width: 13vw
+        background-color: $gray-line
+        margin: 0 auto
+        margin-top: 6vh
+    ul.bullets
+        margin-top: 6vh
+        margin-left: 19vw
+        margin-right: 19vw
+        padding: 0
+        li
+            text-align: center
+            width: 10vw
+            img
+                margin-bottom: 2vh
+                width: 4.2vw
+                fill: $white
+            .b_header
+                color: $yellow
+                font: $ibm35
+                margin-bottom: 0.5vh
+            .b_text
+                font: $nrm26
+    /*media*/
+    @media (max-width: 1366px)
+        .bl3_message .header
+            font-size: 5.04vw
+        ul.bullets li .b_header
+        .bl3_message .bspan
+            font-size: 4.08vw
+        .bl3_message .sspan
+            padding: 0 32%
+        .bl3_message .sspan, ul.bullets li .b_header
+            font-size: 2.21vw
+        ul.bullets li .b_text
+            font-size: 1.64vw
+        ul.bullets
+            margin-left: 15vw
+            margin-right: 15vw
+            li
+                width: 14vw
+                img
+                    width: 5.04vw
+    @media (max-width: 1024px)
+        .bl3_message .header
+            font-size: 6.05vw
+        .bl3_message .bspan
+            font-size: 4.9vw
+        .bl3_message .sspan
+            padding: 0 29%
+        .bl3_message .sspan, ul.bullets li .b_header
+            font-size: 2.65vw
+        ul.bullets li .b_text
+            font-size: 1.97vw
+        ul.bullets
+            margin-left: 8vw
+            margin-right: 8vw
+            li
+                width: 17vw
+                img
+                    width: 6vw
+    @media (max-width: 768px)
+        padding-bottom: 1vh
+        background-size: 515%
+        background-position: 20% 0%
+        .line
+            width: 50vw
+            height: 2px
+        .bl3_message .header
+            font-size: 7.26vw
+        .bl3_message .bspan
+            font-size: 5.88vw
+        .bl3_message .sspan
+            padding: 0 25%
+        ul.bullets li .b_header
+            padding: 0 25%
+        .bl3_message .sspan, ul.bullets li .b_header
+            font-size: 3.18vw
+        ul.bullets li .b_text
+            font-size: 2.5vw 
+        ul.bullets
+            margin-left: 8vw
+            margin-right: 8vw
+            flex-wrap: wrap
+            li
+                width: 42vw
+                margin-bottom: 5vh
+                img
+                    width: 15vw   
+                    margin-bottom: 1vh
+            li:nth-child(4) 
+                transform: translateY(-5vh)
+                img
+                    transform: translateY(3vh)
+            li:nth-child(5) 
+                transform: translateY(-10vh)
+                img
+                    transform: translateY(4vh)
+    @media (max-width: 420px)
+        background-image: url(../img/fon2-m.jpg)
+        background-size: cover
+        background-position: 50% 20%
+        .bl3_message .header
+            font-size: 12vw
+        .bl3_message .bspan
+            font-size: 9vw
+        .bl3_message .sspan, ul.bullets li .b_header
+            font-size: 6.5vw
+            padding: 0 5%
+        ul.bullets li .b_text
+            font-size: 6.2vw
+        ul.bullets
+            img
+                width: 22vw
+            li
+                width: 100vw
+.block4
+    .quote
+        opacity: 0
+        font: $ibm65
+        margin-top: 18%
+        margin-bottom: 4%
+    .quote_wrap
+        position: relative
+        align-items: flex-end
+        margin-right: 17%
+        padding-bottom: 10%
+    .name
+        opacity: 0
+        font: $irm35
+        color: $gray
+        text-align: right
+        align-self: flex-end
+        margin-bottom: 0.7vh
+    .who
+        opacity: 0
+        font: $irm26
+        color: $gray
+        text-align: right
+        align-self: flex-end
+    /*media*/
+    @media (max-width: 1366px)
+        .quote
+            font-size: 4.08vw
+        .name
+            font-size: 2.2vw
+            width: 37%
+        .who
+            font-size: 1.64vw
+            width: 37%
+        .quote_wrap
+            margin-right: 12%
+    @media (max-width: 1024px)
+        .quote
+            font-size: 4.9vw
+            margin-top: 17%
+        .name
+            font-size: 2.65vw
+            width: 42%
+        .who
+            font-size: 1.97vw
+            width: 42%
+        .quote_wrap
+            margin-right: 8%
+    @media (max-width: 768px)
+        .quote
+            font-size: 5.87vw
+            margin-top: 20%
+        .who
+            font-size: 2.37vw
+            width: 50%
+        .name
+            font-size: 3.18vw
+            width: 50%
+        .quote_wrap
+            margin-right: 8%
+            padding-bottom: 21%
+    @media (max-width: 420px) 
+        background-position: 15% 0%
+        background-size: 140vh
+        height: 160vh
+        background-color: #f3f3f4
+        background-repeat: no-repeat
+        .quote
+            font-size: 9.7vw
+            margin-top: 12vh
+            margin-bottom: 8vh
+        .who
+            font-size: 6vw
+            width: 90%
+        .name
+            font-size: 8vw
+            width: 90%
+            color: $text
+        .quote_wrap
+            height: 100vh
+            margin-left: 8%
+            padding-bottom: 21%
+            padding-top: 85vh
+.block5
+    padding-bottom: 9vh
+    .bl5_message 
+        padding-top: 8.7vh
+        text-align: center
+        .header
+            font: $ibm80            
+        .bspan
+            margin-top: 2vh
+            font: $ibm65
+        .sspan
+            font: $ibm35
+            margin-top: 2vh
+            span
+                color: $yellow
+    .line
+        height: 1px
+        width: 3vw
+        background-color: $gray-line
+        margin: 0 auto
+        margin-top: 6vh
+    ul.big_bullets
+        margin-top: 6vh
+        margin-left: 17.5vw
+        margin-right: 17.5vw
+        padding: 0
+        li
+            text-align: center
+            width: 30%
+            img
+                margin-bottom: 2vh
+                width: 9vw
+            .b_header
+                color: $yellow
+                font: $ibm35
+                margin-bottom: 0.5vh
+                text-align: left
+            .b_text
+                font: $nrm26
+                text-align: left
+    .bl5_message2
+        border-left: 2px solid $yellow
+        margin: 0 auto
+        width: 35vw
+        padding: 0 2.5vw
+        margin-top: 6vh
+        .bspan
+            font: $ibm45
+            display: block
+        .sspan
+            font: $ibm35
+            display: block
+            margin-top: 1.5vh
+    ul.small_bullets
+        margin-top: 6vh
+        margin-left: 17.5vw
+        margin-right: 17.5vw
+        padding: 0
+        li
+            text-align: center
+            width: 19.9vw
+            img
+                margin-bottom: 2vh
+                width: 4.2vw
+                float: left
+            .b_header
+                font: $ibm26
+                margin-bottom: 0.5vh
+                margin-left: 5.5vw
+                text-align: left
+            .b_text
+                font: $nrm26
+                margin-left: 5.5vw
+                text-align: left
+        li:nth-child(2)
+            margin-left: 3vw
+    /*media*/
+    @media (max-width: 1366px)
+        .line
+            width: 8vw
+        ul.big_bullets, ul.small_bullets
+            margin-left: 15vw
+            margin-right: 15vw
+        ul.small_bullets li
+            width: 22.9vw
+        ul.big_bullets li
+            width: 20vw
+        .bl5_message .header
+            font-size: 5.04vw
+        .bl5_message .sspan, ul.big_bullets li .b_header
+            font-size: 2.21vw
+        ul.big_bullets li .b_text, ul.small_bullets li .b_header, ul.small_bullets li .b_text
+            font-size: 1.64vw
+    @media (max-width: 1024px)
+        .line
+            height: 2px
+        ul.big_bullets, ul.small_bullets
+            margin-left: 8vw
+            margin-right: 8vw
+        ul.big_bullets li img
+            width: 12vw
+        ul.big_bullets li
+            width: 25vw
+        ul.small_bullets li
+            width: 27vw
+            img
+                width: 5.2vw
+        .bl5_message .header
+            font-size: 6.05vw
+        .bl5_message .sspan, ul.big_bullets li .b_header
+            font-size: 2.65vw
+        ul.big_bullets li .b_text, ul.small_bullets li .b_header, ul.small_bullets li .b_text
+            font-size: 1.97vw 
+        ul.small_bullets li .b_header, ul.small_bullets li .b_text
+            margin-left: 6.5vw      
+    @media (max-width: 768px)
+        ul.big_bullets, ul.small_bullets
+            margin-left: 6vw
+            margin-right: 6vw
+        ul.big_bullets li
+            width: 28vw
+        ul.small_bullets li
+            width: 28vw
+        .bl5_message .header
+            font-size: 7.26vw
+        .bl5_message .sspan, ul.big_bullets li .b_header
+            font-size: 3.18vw
+        ul.big_bullets li .b_text, ul.small_bullets li .b_header, ul.small_bullets li .b_text
+            font-size: 2.37vw
+    @media (max-width: 420px) 
+        ul.big_bullets
+            margin-top: 3vh
+        ul.big_bullets, ul.small_bullets
+            flex-wrap: wrap
+            li
+                width: 88vw
+                margin-bottom: 7vh 
+        ul.big_bullets li:nth-child(1) img
+            transform: translateY(4vh)
+        ul.big_bullets li img
+                    width: 30vw
+        ul.small_bullets li img
+                    width: 15vw
+        .line
+            width: 25vw
+        .bl5_message .header
+            font-size: 11vw
+        .bl5_message .sspan, ul.big_bullets li .b_header
+            font-size: 6vw
+            text-align: center
+        ul.big_bullets li .b_text
+            text-align: center
+        ul.big_bullets li .b_text, ul.small_bullets li .b_header, ul.small_bullets li .b_text
+            font-size: 5.84vw 
+        ul.small_bullets li .b_header, ul.small_bullets li .b_text
+            margin-left: 20vw 
+        ul.small_bullets
+            margin-top: 0 
+            margin-bottom: 0   
+            li
+                margin-left: 0 !important
+                margin-top: 0                      
+.block6
+    .quote
+        opacity: 0
+        font: $ibm65
+        margin-top: 15%
+        margin-bottom: 4%
+    .quote_wrap
+        position: relative
+        align-items: flex-start
+        margin-left: 17%
+        width: 83%
+        padding-bottom: 10%
+    .name
+        opacity: 0
+        font: $irm35
+        color: $gray
+        text-align: right
+        align-self: flex-start
+        margin-bottom: 1%
+        width: 40%
+    .who
+        opacity: 0
+        font: $irm26
+        color: $gray
+        text-align: right
+        align-self: flex-start
+        width: 40%
+    /*media*/
+    @media (max-width: 1366px)
+        .quote
+            font-size: 4.08vw
+        .name
+            font-size: 2.2vw
+            width: 37%
+        .who
+            font-size: 1.64vw
+            width: 37%
+        .quote_wrap
+            margin-left: 12%
+    @media (max-width: 1024px)
+        .quote
+            font-size: 4.9vw
+            margin-top: 8%
+        .name
+            font-size: 2.65vw
+            width: 50%
+        .who
+            font-size: 1.97vw
+            width: 50%
+        .quote_wrap
+            margin-left: 8%
+    @media (max-width: 768px)
+        .quote
+            font-size: 5.87vw
+            margin-top: 11%
+        .who
+            font-size: 2.37vw
+            width: 68%
+        .name
+            font-size: 3.18vw
+            width: 68%
+        .quote_wrap
+            margin-left: 8%
+            padding-bottom: 21%
+    @media (max-width: 420px) 
+        background-position: 87% 0%
+        background-size: 140vh
+        height: 160vh
+        background-color: #f3f3f4
+        background-repeat: no-repeat
+        .quote
+            font-size: 9.3vw
+            margin-top: 11%
+            margin-bottom: 8vh
+        .who
+            font-size: 6vw
+            width: 90%
+        .name
+            font-size: 8vw
+            width: 90%
+            color: $text
+        .quote_wrap
+            height: 100vh
+            margin-left: 5%
+            width: 90%
+            padding-bottom: 21%
+            padding-top: 85vh
+.block7
+    padding-bottom: 9vh
+    .bl7_message 
+        padding-top: 8.7vh
+        text-align: center
+        .header
+            font: $ibm80            
+        .bspan
+            margin-top: 3vh
+            font: $ibm45
+            color: $yellow
+    .sspan
+        font: $ibm35
+        margin-bottom: 6vh
+        text-align: center
+    .line
+        height: 1px
+        width: 3.49vw
+        background-color: $gray-line
+        margin: 0 auto
+        margin-top: 4.9vh
+    ul.bullets
+        margin-top: 4.9vh
+        margin-left: 29vw
+        margin-right: 29vw
+        padding: 0
+        li
+            text-align: center
+            width: 13vw
+            div.b_header
+                font: $ibm45
+                text-transform: uppercase
+                margin-bottom: 0.5vh
+                cursor: pointer
+            div.b_header.active
+                color: $yellow
+                transition: all 0.3s
+                text-decoration: underline
+            div.b_header:hover
+                text-decoration: underline                
+    .bl7-content-wrap
+        margin-top: 5vh
+        margin-left: 17.5vw
+        margin-right: 17.5vw
+        .img-with-line, .spec-wrap
+            width: 50%
+            flex-wrap: wrap
+        .img-with-line  img
+            width: 100%
+            border-bottom: 3px solid $white
+        .img-top-line
+            height: 3px
+            width: 10vw
+            background-color: $white
+            float: right
+    .bl7-content
+        display: none
+    .bl7-content>.flex-row
+        width: 100%
+        justify-content: flex-start
+        .spec
+            align-items: flex-start
+            width: 33%
+            .spec-name
+                font: $nrm20
+                margin-bottom: 1vh
+            .spec-line
+                height: 1px
+                width: 8.33vw
+                background-color: $white
+                margin-bottom: 1vh
+            .spec-value
+                font: $irm26
+    .bl7-content.active
+        display: block        
+    ul.bullets li div.b_header.active .after, ul.bullets li div.b_header.active .before
+        display: none
+        transition: all 0.5s ease-in-out 
+    /*media*/
+    @media (max-width: 1366px)
+        .bl7-content>.flex-row .spec
+            width: 29%
+            margin-right: 1vw
+            margin-bottom: 2vw
+        .bl7-content-wrap
+            margin-left: 15vw
+            margin-right: 15vw
+        .bl7_message .header
+            font-size: 5.04vw
+        ul.bullets
+            margin-left: 25vw
+            margin-right: 25vw
+            li
+                width: 16vw
+        .bl7_message .bspan, ul.bullets li div.b_header 
+            font-size: 2.83vw 
+        .sspan
+            font-size: 2.21vw 
+        .bl7-content>.flex-row .spec .spec-name
+            font-size: 1.26vw
+        .bl7-content>.flex-row .spec .spec-value
+            font-size: 1.5vw
+    @media (max-width: 1024px)
+        ul.bullets
+            margin-left: 20vw
+            margin-right: 20vw
+            li
+                width: 20vw
+        .bl7-content>.flex-row .spec
+            width: 29%
+            margin-right: 1.5vw
+            margin-bottom: 2vw
+        .bl7-content-wrap
+            margin-left: 8vw
+            margin-right: 8vw
+        .line
+            width: 8vw
+        .bl7_message .header
+            font-size: 6.05vw
+        .bl7_message .bspan, ul.bullets li div.b_header 
+            font-size: 3.40vw 
+        .sspan
+            font-size: 2.65vw 
+        .bl7-content>.flex-row .spec .spec-name
+            font-size: 1.51vw
+        .bl7-content>.flex-row .spec .spec-value
+            font-size: 1.8vw    
+    @media (max-width: 768px)
+        ul.bullets
+            margin-left: 10vw
+            margin-right: 10vw
+            li
+                width: 25vw
+        .line
+            width: 25vw
+        .bl7-content-wrap
+            margin-left: 6vw
+            margin-right: 6vw
+        .bl7-content.active>.flex-row
+            flex-wrap: wrap-reverse
+        .bl7-content-wrap .spec-wrap
+            margin-top: 5vh
+        .bl7-content-wrap .img-with-line, .bl7-content-wrap .spec-wrap
+            width: 100%
+        .bl7_message .header
+            font-size: 7.26vw
+        .bl7_message .bspan, ul.bullets li div.b_header 
+            font-size: 4.08vw 
+        .sspan
+            font-size: 3.18vw 
+        .bl7-content>.flex-row .spec .spec-name
+            font-size: 2.5vw
+        .bl7-content>.flex-row .spec .spec-value
+            font-size: 3.18vw 
+        .bl7-content>.flex-row .spec .spec-line 
+            width: 17vw
+    @media (max-width: 420px) 
+        ul.bullets
+            margin-left: 10vw
+            margin-right: 10vw
+            li
+                width: 25vw
+        .line
+            width: 8vw
+        .bl7_message .header
+            font-size: 11vw
+        ul.bullets
+            flex-wrap: wrap
+            li
+                width: 90vw
+        ul.bullets li div.b_header
+            display: none
+        ul.bullets li div.b_header.active
+            display: block
+        ul.bullets li
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+        ul.bullets li .after.active
+            background-image: url("../img/play-button-r.svg")
+            background-size: cover
+            background-position: center center
+            content: ""
+            margin-top: 0.8vh
+            width: 8vw
+            height: 8vw
+            cursor: pointer
+            display: block
+        ul.bullets li .before.active
+            background-image: url("../img/play-button-l.svg")
+            background-size: cover
+            background-position: center center
+            content: ""
+            margin-top: 0.8vh
+            width: 8vw
+            height: 8vw
+            cursor: pointer
+            display: block
+        .bl7_message .bspan, ul.bullets li div.b_header 
+            font-size: 9vw 
+        .sspan
+            font-size: 5.7vw 
+            font-weight: 400
+            padding: 0 19vw
+        .bl7-content>.flex-row .spec
+            width: 46%
+            margin-right: 1%
+        .bl7-content>.flex-row .spec .spec-name
+            font-size: 4vw
+        .bl7-content>.flex-row .spec .spec-line
+            width: 25vw
+        .bl7-content>.flex-row .spec .spec-value
+            font-size: 5.7vw         
+.block8
+    .quote
+        opacity: 0
+        font: $ibm80
+        margin-top: 11%
+        text-align: right
+        margin-bottom: 4%
+    .quote_wrap
+        position: relative
+        align-items: flex-end
+        margin-right: 17%
+        padding-bottom: 7%
+    .name
+        opacity: 0
+        font: $irm35
+        color: $gray
+        text-align: right
+        align-self: flex-end
+        margin-bottom: 0.7vh
+    .who
+        opacity: 0
+        font: $irm26
+        color: $gray
+        text-align: right
+        align-self: flex-end
+    /*media*/
+    @media (max-width: 1366px)
+        .quote
+            font-size: 4.08vw
+        .name
+            font-size: 2.2vw
+            width: 37%
+        .who
+            font-size: 1.64vw
+            width: 37%
+        .quote_wrap
+            margin-right: 12%
+    @media (max-width: 1024px)
+        .quote
+            font-size: 4.9vw
+            margin-top: 17%
+        .name
+            font-size: 2.65vw
+            width: 42%
+        .who
+            font-size: 1.97vw
+            width: 42%
+        .quote_wrap
+            margin-right: 8%
+    @media (max-width: 768px)
+        .quote
+            font-size: 5.87vw
+            margin-top: 12%
+        .who
+            font-size: 2.37vw
+            width: 50%
+        .name
+            font-size: 3.18vw
+            width: 50%
+        .quote_wrap
+            margin-right: 8%
+            padding-bottom: 12%
+    @media (max-width: 420px) 
+        background-position: 23% 0%
+        background-size: 140vh
+        height: 160vh
+        background-color: #f3f3f4
+        background-repeat: no-repeat
+        .quote
+            font-size: 9.7vw
+            margin-top: 6vh
+            margin-bottom: 8vh 
+            text-align: left           
+            align-self: flex-start
+            margin-left: 12%
+        .who
+            font-size: 6vw
+            width: 90%
+        .name
+            font-size: 8vw
+            width: 90%
+            color: $text
+        .quote_wrap
+            height: 100vh
+            margin-right: 12%
+            padding-bottom: 21%
+            padding-top: 85vh
+.block9
+    padding-bottom: 9vh
+    .bl9_message 
+        padding-top: 8.7vh
+        text-align: center
+        .header
+            font: $ibm80            
+        .bspan
+            margin: 3vh auto 0 auto
+            font: $ibm45
+            color: $yellow
+    .bl9_video
+        margin: 5vh 17.5vw
+        .bspan
+            color: $white
+            max-width: 33vw
+            span
+                color: $yellow
+        .bl9_video_wrap
+            margin-top: 5vh
+            position: relative
+        iframe, img
+            width: 100%
+            height: 31.1vw
+            cursor: pointer
+        iframe
+            position: absolute
+            top: 0
+            left: 0
+            z-index: -5
+        .play_btn-wrap
+            position: absolute
+            width: 13vw
+            top: 40%
+            left: 25vw
+            span
+                font: normal 600 1.26vw Monitorica
+                text-transform: uppercase
+                color: #e5e5e5
+            .play_video            
+                cursor: pointer
+                margin-left: 3vw
+                margin-bottom: 2vh
+                border: 2vw solid transparent
+                border-left: 3vw solid #f4ff5a
+            .play_video:hover
+                border-left: 3vw solid #dbe454
+    .scedule
+        width: 34.1vw
+        margin-top: 8vh
+        margin-right: 17.5vw
+        position: relative
+        padding-left: 4vw
+        margin-left: 39.8vw
+        align-items: flex-start
+        border-left: 2px solid transparent
+        .day
+            position: relative
+            margin-bottom: 6vh
+            opacity: 0
+        .d-disc
+            background-color: $white
+            border-radius: 100px
+            width: 1.56vw
+            height: 1.56vw
+            position: absolute
+            top: 0
+            left: -4.9vw
+        .d-head
+            font: $ibm35
+            margin-top: -0.3vh
+            margin-bottom: 1vh
+        .d-text
+            font: $nrm35
+            span
+                //color: $yellow
+        .d-line
+            width: 2px
+            height: 0
+            position: absolute
+            left: -0.15vw
+            top: 0
+            background: $white
+            bottom: 0
+        .scedule-begin-wrap
+            position: relative
+            .scedule-begin
+                font: $nrm26
+                position: absolute
+                left: -9vw
+                width: 10vw
+                top: 0.7vh
+        .scedule-begin-line
+            width: 2px
+            height: 10px
+            //background: $yellow
+            position: absolute
+            left: -2px
+            bottom: 0
+    /*media*/
+    @media (max-width: 1366px)
+        .scedule .header, .bl9_message .header
+            font-size: 5.4vw
+        .scedule .bspan, .bl9_message .bspan
+            font-size: 2.83vw
+        .bl9_video .bspan
+            max-width: 40vw
+        .scedule .d-head, .scedule .d-text
+            font-size: 2.21vw
+        .scedule .d-disc
+            width: 1.87vw
+            height: 1.87vw
+            left: -5vw
+        .scedule .scedule-begin-wrap .scedule-begin
+            font-size: 1.64vw 
+            width: 12vw      
+        .bl9_video .play_btn-wrap span
+            font-size: 1.51vw 
+    @media (max-width: 1024px)
+        .bl9_video
+            margin: 5vh 15vw
+        .bl9_video iframe, .bl9_video img
+            width: 100%
+            height: 100%
+        .scedule .header, .bl9_message .header
+            font-size: 6.05vw
+        .scedule .bspan, .bl9_message .bspan
+            font-size: 3.4vw
+        .bl9_video .bspan
+            max-width: 47vw
+        .scedule .d-head, .scedule .d-text
+            font-size: 2.65vw
+        .scedule .d-disc
+            width: 2.25vw
+            height: 2.25vw
+            left: -5.1vw
+        .scedule .scedule-begin-wrap .scedule-begin
+            font-size: 1.97vw 
+            width: 15vw      
+        .bl9_video .play_btn-wrap 
+            left: 29vw
+        .bl9_video .play_btn-wrap span
+            font-size: 1.81vw
+    @media (max-width: 768px)
+        .bl9_video
+            margin: 5vh 5vw
+        .bl9_video iframe, .bl9_video img
+            width: 100%
+            height: 100%
+        .scedule .header, .bl9_message .header
+            font-size: 7.25vw
+        .scedule .bspan, .bl9_message .bspan
+            font-size: 4.08vw
+        .bl9_video .bspan
+            max-width: 57vw
+        .scedule .d-head, .scedule .d-text
+            font-size: 3.18vw
+        .scedule .d-disc
+            width: 2.7vw
+            height: 2.7vw
+            left: -5.5vw
+        .scedule .scedule-begin-wrap .scedule-begin
+            font-size: 2.37vw 
+            width: 30vw
+        .bl9_video .play_btn-wrap 
+            left: 39vw
+        .bl9_video .play_btn-wrap span
+            font-size: 2.18vw
+    @media (max-width: 420px)
+        padding-bottom: 1vh
+        .scedule
+            margin-left: 10vw
+            width: 80vw
+        .bl9_video
+            margin: 5vh 0vw
+        .bl9_video iframe, .bl9_video img
+            width: 100%
+            height: 100%
+        .bl9_message .header, 
+            font-size: 11vw
+        .bl9_video.bl9_message .header
+            font-size: 11vw
+            max-width: 55vw
+            margin: 0 auto
+        .scedule .bspan, .bl9_message .bspan
+            font-size: 9vw
+        .bl9_video .bspan
+            max-width: 90vw
+        .scedule .d-head, .scedule .d-text
+            font-size: 5.04vw
+        .scedule .d-disc
+            width: 2.7vw
+            height: 2.7vw
+            left: -5.5vw
+        .scedule .scedule-begin-wrap .scedule-begin
+            font-size: 5.04vw
+            width: 40vw
+        .bl9_video .play_btn-wrap 
+            left: 36vw
+            width: 30vw
+        .bl9_video .play_btn-wrap span
+            font-size: 4.3vw
+            font-weight: 400
+.block10
+    .quote
+        opacity: 0
+        font: $ibm80
+        margin-top: 40vh
+        margin-bottom: 4vh
+        text-align: right
+    .quote_wrap
+        position: absolute
+        right: 35%
+    .name
+        opacity: 0
+        font: $irm35
+        margin-right: 2vw
+        color: $gray
+        text-align: right
+        align-self: flex-end
+        margin-bottom: 1vh   
+    /*media*/
+    @media (max-width: 1366px)
+        .quote
+            font-size: 4.08vw
+        .name
+            font-size: 2.2vw
+    @media (max-width: 1024px)
+        .quote_wrap
+            right: 33%
+        .quote
+            font-size: 4.9vw
+        .name
+            font-size: 2.65vw
+    @media (max-width: 768px)
+        height: 60vh
+        .quote_wrap
+            right: 28%
+        .quote
+            margin-top: 25vh
+            font-size: 5.87vw
+        .name
+            font-size: 3.18vw
+    @media (max-width: 420px)
+        .quote_wrap
+            right: 6% 
+        .quote
+            font-size: 9.3vw
+            margin-top: 20vh
+        .name
+            font-size: 8vw
+            width: 65%
+            margin-right: 10%
+.block_form
+    .form_content-wrap
+        height: 23vw
+    .block_form_header
+        padding-top: 5.5vh
+        text-align: center
+        font: $ibm65 
+        color: #ffffff
+    .form_progress
+        li
+            width: 25%
+        li span
+            font: $nrm20
+        ul
+            width: 28.8vw
+            list-style-type: none
+            margin: 0 auto
+            margin-top: 1.8vw
+            padding: 0
+            .form_point
+                background-color: $white
+                border-radius: 100px
+                width: 0.96vw
+                height: 0.96vw
+                position: absolute
+                margin-top: 1.8vw
+            .form_line
+                height: 2px
+                width: 101%
+                background-color: #fff
+                margin-top: 1vw
+        li:first-child .form_line
+                width: 50%
+                align-self: flex-end
+        li:last-child .form_line
+                width: 50%
+                align-self: flex-start
+        li.active, li.passed
+            .form_line, .form_point
+                background-color: $yellow
+            span
+                color: $yellow
+    .block_form_content
+        display: none
+    .block_form_content.active
+        display: block
+    #form_point1_content, #form_point3_content
+        margin-left: 17.5vw
+        margin-right: 17.5vw
+        margin-top: 2vw
+        .block_form_content_header
+            font: $nrm20
+            color: $gray-form
+        .inputs_col1, 
+            width: 50%
+            align-items: flex-start
+            margin-top: 1vw
+        .inputs_col2
+            width: 50%
+            align-items: flex-end
+            margin-top: 1vw
+        .block_form_content_inputs input
+            font: $nrm26
+            color: #ddd
+            background-color: rgba(255, 255, 255, 0)
+            border: none
+        .block_form_content_inputs>div>input
+            width: 87%
+            padding: 1.57vh 0
+            border-bottom: 1px solid #7f7f7f
+            margin-top: 1vh
+        .checkbox
+            align-self: flex-start
+            width: 100%
+            margin-top: 3.5vh
+            padding-left: 13%
+            position: relative
+        input[type=checkbox]
+            opacity: 0
+            z-index: 10
+            cursor: pointer
+            position: absolute
+            top: 0.6vh
+            height: .78vw
+            width: .78vw
+        .checkbox-wrap 
+            cursor: pointer
+            content: " "
+            border: 1px solid #ddd
+            display: block
+            background-color: rgba(255, 255, 255, 0)
+            position: absolute
+            top: 0.6vh
+            height: 0.78vw
+            width: 0.78vw
+        input[type=checkbox]:checked+.checkbox-wrap 
+            background-color: $yellow
+        .block_form_content_inputs label
+            font: $nrm20
+            margin-left: 1.5vw
+            color: #ddd
+        .block_form_content_inputs input::-webkit-input-placeholder /* Chrome */
+            color: #ddd
+        .block_form_content_inputs input:-ms-input-placeholder /* IE 10+ */
+            color: #ddd
+        .block_form_content_inputs input::-moz-placeholder /* Firefox 19+ */
+            color: #ddd
+        .block_form_content_inputs input:-moz-placeholder /* Firefox 4 - 18 */
+            color: #ddd
+        .block_form_btn
+            text-align: center
+            button
+                background-color: $yellow
+                border: none
+                color: #1d1d21
+                width: 23.8vw
+                height: 3.39vw
+                margin-top: 1vw
+                font: normal 600 1.42vw Monitorica
+                transform: skewX(25deg)
+                margin-bottom: 0
+                span
+                    transform: skewX(-25deg)
+                    display: block
+                    text-transform: uppercase
+        .block_form_2send
+            margin: 0 auto
+            width: 30%
+            height: 4vw
+            input
+                font: $nrm20
+                color: #9f9f9f
+                background-color: rgba(255, 255, 255, 0)
+                border: none
+                width: 60%
+                padding: 0
+                border-bottom: 1px solid #7f7f7f
+            button
+                font: $nrm20
+                color: #9f9f9f
+                background-color: transparent
+                text-decoration: underline
+                cursor: pointer
+                border: none
+        .block_form_2send input::-webkit-input-placeholder /* Chrome */
+            color: #9f9f9f
+        .block_form_2send input:-ms-input-placeholder /* IE 10+ */
+            color: #9f9f9f
+        .block_form_2send input::-moz-placeholder /* Firefox 19+ */
+            color: #9f9f9f
+        .block_form_2send input:-moz-placeholder /* Firefox 4 - 18 */
+            color: #9f9f9f
+    #form_point3_content
+        a.contract
+            text-decoration: underline
+            text-align: center
+            margin-top: 5vh
+            display: block
+            width: 100%
+            font: normal 400 1.05vw Monitorica
+        .checkbox
+            font: normal 400 1.05vw Monitorica
+            width: 29vw
+            margin-top: 1.5vh
+            padding: 0
+            text-align: left
+            display: block
+            margin: 1.5vh auto 0 auto
+            .checkbox-wrap, input
+                top: 0.2vh
+            label
+                padding-left: 1.5vw
+                display: block
+        .block_form_btn
+            button
+                margin-bottom: 4vw
+    #form_point2_content
+        margin-left: 17.5vw
+        margin-right: 17.5vw
+        margin-top: 2vw
+        .block_form_content_header
+            font: $nrm20
+            color: $gray-form
+        .form_col2 .block_form_content_header
+            margin: 0 auto 0.7vw auto
+            width: 23.27vw
+        .form_col1
+            width: 50%
+            align-items: flex-start
+            margin-top: 0
+            .automobiles
+                padding: 0
+                color: #898989
+                font: normal 600 1.37vw Monitorica
+                margin: 1.5vw 0
+                cursor: pointer
+            .about-automobile
+                font: normal 400 0.92vw Monitorica
+                background-color: #1a1b21
+                opacity: 0.9
+                padding: 1.2vw
+            .form_point2-automobile
+                display: none
+                img
+                    width: 16.14vw
+                    height: 100%
+                    margin-right: 0.5vw
+                .about-automobile
+                    width: 13.25vw
+        .form_col2
+            width: 50%
+            align-items: flex-end
+            margin-top: 0  
+            .calendar_comments
+                margin: 0 auto
+                width: 23.27vw
+            .calendar
+                margin: 0 auto 0.2vw auto
+                width: 23.27vw
+                .calendar_monthes
+                    width: 50%
+                    flex-wrap: wrap
+                    background-color: #303030
+                    .calendar_month
+                        width: 31.5%
+                        height: 3.02vw
+                        border: 0.08vw solid #303030
+                        background-color: #1c1e27                        
+                        transition: all 0.5s ease-in-out
+                        span
+                            color: #e8e8e8
+                            display: block
+                            text-align: center
+                            margin: 1.1vw auto
+                            font: normal 400 0.74vw Myriad Pro
+                    .calendar_month.disabled
+                        background-color: #1d1e24
+                        cursor: default
+                        span
+                            color: #545454
+                    .calendar_month.active, .calendar_month.available:hover
+                        cursor: pointer
+                        background-color: $yellow
+                        span
+                            color: #363636
+                .calendar_dates-wrap
+                    width: 50%
+                    .full_date
+                        height: 0.5vw
+                        padding: 0.8vw
+                        justify-content: center
+                        font: normal 400 0.74vw Myriad Pro
+                        background-image: url('../img/cal-bg.jpg')
+                        background-size: cover
+                        background-position: top center
+                        .full_date-arrow-l    
+                            border: 3px solid transparent
+                            border-right: 5px solid $white
+                            width: 0px
+                            cursor: pointer
+                        .full_date-arrow-r    
+                            border: 3px solid transparent
+                            border-left: 5px solid $white
+                            width: 0px
+                            cursor: pointer
+                    .d_o_w-wrap
+                        background-color: #13151b
+                        height: 1vw
+                        font: normal 600 0.42vw Helvetica
+                        text-transform: uppercase
+                        span
+                            margin-top: 0.3vw 
+                            width: 1.5vw
+                            text-align: center
+                .calendar_dates.active
+                    display: flex
+                .calendar_dates
+                    flex-wrap: wrap
+                    display: none
+                    justify-content: flex-start
+                    background-color: #303030
+                    .calendar_date
+                        width: 1.49vw
+                        height: 1.48vw
+                        border: 1px solid #303030
+                        background-color: #1c1e27 
+                        transition: all 0.5s ease-in-out               
+                        span
+                            color: #e8e8e8
+                            display: block
+                            text-align: center
+                            margin: 0.2vw auto
+                            font: normal 600 0.74vw Helvetica
+                    .calendar_date.disabled
+                        background-color: #1d1e24
+                        cursor: default
+                        span
+                            color: #545454
+                    .calendar_date.engaged
+                        background-color: #271c1c
+                        cursor: default
+                        span
+                            color: #545454
+                    .calendar_date.active, .calendar_date.available.active:hover, .calendar_date.available:hover
+                        cursor: pointer
+                        background-color: $yellow
+                        span
+                            color: #363636
+            .calendar_comment-wrap
+                width: 6.7vw
+            .calendar_comment
+                width: 1.41vw
+                height: 1.41vw
+                border: 1px solid #303030
+                background-color: #1c1e27                
+            .calendar_comment>span
+                color: #e8e8e8
+                display: block
+                text-align: center
+                margin: 0.2vw auto
+                font: normal 600 0.74vw Helvetica
+            .calendar_comment+span
+                color: #e8e8e8
+                display: block
+                text-align: center
+                margin: 0.4vw
+                text-transform: uppercase
+                font: normal 400 0.74vw Monitorica
+            .calendar_comment.disabled>span, .calendar_comment.engaged>span
+                color: #535353
+            .calendar_comment.active>span
+                color: #363636
+            .calendar_comment.disabled
+                background-color: #1d1e24
+            .calendar_comment.engaged
+                background-color: #271c1c
+            .calendar_comment.active
+                background-color: $yellow
+        .point2_header.active
+            color: $yellow
+            text-decoration: underline
+        .form_point2-automobile.active
+            display: flex  
+        .form_point2-automobile.active, .automobiles.flex-row
+            width: 31.77vw
+        .form_total
+            font: normal 400 0.92vw Monitorica
+            color: #d7d7d7
+            width: 18.23vw
+            margin: 2.8vh auto 0 auto
+            .total_h 
+                border-right: 2px solid #d7d7d7
+                justify-content: center
+                height: 5.63vh
+                span
+                    margin: auto 1.2vw auto 0
+            .total_content
+                p
+                    margin: 0.36vw
+                span
+                    color: $yellow
+        .block_form_btn
+            text-align: center
+            button
+                background-color: $yellow
+                border: none
+                color: #1d1d21
+                width: 23.8vw
+                height: 3.39vw
+                margin-top: 1vw
+                font: normal 600 1.37vw Monitorica
+                transform: skewX(25deg)
+                margin-bottom: 4vw
+                span
+                    transform: skewX(-25deg)
+                    display: block
+                    text-transform: uppercase  
+    #form_point4_content
+        margin-left: 30vw
+        margin-right: 30vw
+        margin-top: 2vw
+        .block_form_content_header
+            font: $nrm20
+            color: $gray-form
+            margin-bottom: 1.31vh
+        .col1, .col2
+            font: normal 400 1.37vw Monitorica
+            align-items: flex-start
+            p
+                margin: 1.31vh 0
+            span
+                color: $yellow
+            p>a
+                text-decoration: underline
+        .point4_comment
+            width: 24.5vw
+            margin: 8.43vh auto 0 auto
+            font: normal 400 1.05vw Monitorica
+        .block_form_btn
+            text-align: center
+            button
+                background-color: $yellow
+                border: none
+                color: #1d1d21
+                width: 23.8vw
+                height: 3.39vw
+                margin-top: 1vw
+                font: normal 600 1.37vw Monitorica
+                transform: skewX(25deg)
+                margin-bottom: 4vw
+                span
+                    transform: skewX(-25deg)
+                    display: block
+                    text-transform: uppercase
+    /*media*/
+    @media (max-width: 1366px)
+        #form_point2_content .form_point2-automobile.active, .block_form #form_point2_content .automobiles.flex-row
+            width: 34vw
+        #form_point2_content .form_col1 .form_point2-automobile img
+            width: 16vw
+        #form_point2_content .form_col1 .form_point2-automobile .about-automobile
+            width: 15vw
+        .block_form_header
+            font-size: 4.08vw
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input, #form_point4_content .col1, #form_point4_content .col2, #form_point2_content .form_col1 .automobiles
+            font-size: 1.64vw
+        #form_point1_content .block_form_btn button, #form_point3_content .block_form_btn button, #form_point2_content .block_form_btn button, #form_point4_content .block_form_btn
+            font-size: 1.70vw
+        #form_point1_content .block_form_2send input, #form_point3_content .block_form_2send input, #form_point1_content .block_form_2send button, #form_point3_content .block_form_2send button,         .form_progress li span, #form_point1_content .block_form_content_header, #form_point3_content .block_form_content_header, #form_point1_content .block_form_content_inputs label, #form_point3_content .block_form_content_inputs label, #form_point3_content .checkbox label, #form_point3_content a.contract, #form_point4_content .block_form_content_header, #form_point4_content .point4_comment, #form_point2_content .block_form_content_header
+            font-size: 1.26vw
+        #form_point2_content .form_col1 .about-automobile, #form_point2_content .form_total
+            font-size: 1.1vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month span, #form_point2_content .form_col2 .calendar .calendar_dates-wrap .full_date, #form_point2_content .form_col2 .calendar_comment+span, #form_point2_content .form_col2 .calendar_comment>span
+            font-size: 0.89vw
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap, #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date span
+            font-size: 0.6vw
+        .form_progress ul .form_line
+            margin-top: 0.8vw
+        .form_content-wrap
+            height: 25vw
+        #form_point3_content .checkbox
+            width: 35vw
+        .about-automobile p
+            margin-top: 0
+        #form_point2_content .form_total
+            width: 20.5vw
+        #form_point1_content, #form_point3_content, #form_point2_content
+            margin-left: 15vw
+            margin-right: 15vw
+        #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date, #form_point2_content .form_col2 .calendar_comment
+            width: 1.48vw
+    @media (max-width: 1100px)
+        #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date, .block_form #form_point2_content .form_col2 .calendar_comment
+            width: 1.47vw
+    @media (max-width: 1024px)
+        .block_form_header
+            font-size: 4.9vw
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input, #form_point4_content .col1, #form_point4_content .col2, #form_point2_content .form_col1 .automobiles, #form_point2_content .form_col2 .automobiles
+            font-size: 1.97vw
+        #form_point1_content .block_form_btn button, #form_point3_content .block_form_btn button, #form_point2_content .block_form_btn button, #form_point4_content .block_form_btn
+            font-size: 2.04vw
+        #form_point1_content .block_form_2send input, #form_point3_content .block_form_2send input, #form_point1_content .block_form_2send button, #form_point3_content .block_form_2send button,         .form_progress li span, #form_point1_content .block_form_content_header, #form_point3_content .block_form_content_header, #form_point1_content .block_form_content_inputs label, #form_point3_content .block_form_content_inputs label, #form_point3_content .checkbox label, #form_point3_content a.contract,#form_point4_content .block_form_content_header, #form_point4_content .point4_comment, #form_point2_content .block_form_content_header
+            font-size: 1.51vw
+        #form_point2_content .form_col1 .about-automobile, #form_point2_content .form_total
+            font-size: 1.32vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month span, #form_point2_content .form_col2 .calendar .calendar_dates-wrap .full_date, #form_point2_content .form_col2 .calendar_comment+span, #form_point2_content .form_col2 .calendar_comment>span
+            font-size: 1.07vw
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap, #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date span
+            font-size: 0.89vw
+        #form_point1_content, #form_point3_content, #form_point2_content
+            margin-left: 8vw
+            margin-right: 8vw
+        #form_point4_content
+            margin-left: 27vw
+            margin-right: 27vw
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input
+            width: 92%
+        #form_point1_content .checkbox, #form_point3_content .checkbox
+            padding-left: 9%
+        .form_content-wrap
+            height: 28vw
+        #form_point3_content .checkbox
+            width: 43vw
+        .form_progress ul .form_point
+            width: 1.2vw
+            height: 1.2vw
+            margin-top: 2vw
+        #form_point4_content .point4_comment
+            width: 26vw
+        #form_point2_content .form_point2-automobile.active, #form_point2_content .automobiles.flex-row
+            width: 42vw
+        #form_point2_content .form_col1 .form_point2-automobile .about-automobile
+            width: 21vw
+        #form_point2_content .form_col1 .form_point2-automobile img
+            width: 20vw
+        #form_point2_content .form_col2 .calendar, #form_point2_content .form_col2 .block_form_content_header
+            width: 30vw
+        #form_point2_content .form_total
+            width: 24vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month
+            height: 3.5vw
+            width: 32%
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap
+            height: 1.6vw
+            span
+                margin: 0.3vw 0.3vw
+        #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date, #form_point2_content .form_col2 .calendar_comment
+            width: 1.93vw
+            height: 1.64vw
+        #form_point2_content .form_col2 .calendar_comments
+            width: 30vw
+        #form_point1_content .block_form_2send
+            width: 25%
+    @media (max-width: 768px)
+        .block_form_header
+            font-size: 5.88vw
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input, #form_point4_content .col1, #form_point4_content .col2, #form_point2_content .form_col1 .automobiles, #form_point2_content .form_col2 .automobiles
+            font-size: 2.37vw
+        #form_point1_content .block_form_btn button, #form_point3_content .block_form_btn button, #form_point2_content .block_form_btn button, #form_point4_content .block_form_btn
+            font-size: 2.45vw
+        #form_point1_content .block_form_2send input, #form_point3_content .block_form_2send input, #form_point1_content .block_form_2send button, #form_point3_content .block_form_2send button,         .form_progress li span, #form_point1_content .block_form_content_header, #form_point3_content .block_form_content_header, #form_point1_content .block_form_content_inputs label, #form_point3_content .block_form_content_inputs label, #form_point3_content .checkbox label, #form_point3_content a.contract,#form_point4_content .block_form_content_header, #form_point4_content .point4_comment, #form_point2_content .block_form_content_header
+            font-size: 1.81vw
+        #form_point2_content .form_col1 .about-automobile, #form_point2_content .form_total
+            font-size: 1.5vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month span, #form_point2_content .form_col2 .calendar .calendar_dates-wrap .full_date, #form_point2_content .form_col2 .calendar_comment+span, #form_point2_content .form_col2 .calendar_comment>span
+            font-size: 1.28vw
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap, #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date span
+            font-size: 1.07vw
+        #form_point1_content, #form_point3_content, #form_point2_content
+            margin-left: 5vw
+            margin-right: 5vw
+        #form_point4_content
+            margin-left: 22vw
+            margin-right: 22vw
+        .form_content-wrap
+            height: 33vw
+        #form_point3_content .checkbox
+            width: 50vw
+        .form_progress ul .form_point
+            width: 1.2vw
+            height: 1.3vw
+            margin-top: 2.3vw
+        #form_point4_content .point4_comment
+            width: 32vw
+        #form_point1_content .checkbox-wrap, .block_form #form_point3_content .checkbox-wrap, #form_point1_content input[type=checkbox], .block_form #form_point3_content input[type=checkbox]
+            top: 0.7vw        
+        #form_point3_content .checkbox .checkbox-wrap, .block_form #form_point3_content .checkbox input
+            top: 0.5vw 
+        #form_point2_content .form_point2-automobile.active, #form_point2_content .automobiles.flex-row
+            width: 45vw
+        #form_point2_content .form_col1 .form_point2-automobile .about-automobile
+            width: 23vw
+        #form_point2_content .form_col1 .form_point2-automobile img
+            width: 21vw
+        #form_point2_content .form_col2 .calendar, #form_point2_content .form_col2 .block_form_content_header
+            width: 30vw
+        #form_point2_content .form_total
+            width: 29vw
+        #form_point2_content .form_total .total_h
+            height: 4.63vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month
+            height: 4vw
+            width: 32%
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap
+            height: 1.6vw
+            span
+                margin: 0.3vw 0.3vw
+        #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date, #form_point2_content .form_col2 .calendar_comment
+            width: 1.87vw
+            height: 1.9vw
+        #form_point2_content .form_col2 .calendar_comments
+            width: 30vw
+        #form_point4_content .point4_comment
+            margin-top: 3vw
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input
+            padding: 1vw 0
+            margin-top: 1vw
+        #form_point3_content a.contract
+            margin-top: 2vw
+    @media (max-width: 420px)
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input
+            padding: 4vw 0 1vw 0
+            margin-top: 1vw
+        #form_point3_content a.contract
+            margin-top: 6vw
+        #form_point4_content .point4_comment
+            margin-top: 6vw
+        .form_progress ul .form_point
+            width: 3vw
+            height: 3vw
+            margin-top: 0vw
+        .form_progress ul .form_line
+            margin-top: 1vw
+        .form_progress ul
+            width: 100vw
+            margin: 4vw 0vw 6vw 0vw
+        .block_form_header
+            font-size: 10vw
+            font-weight: 400
+            width: 80vw
+            margin: 0 auto
+        .form_progress li span
+            display: none
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input, #form_point4_content .col1, #form_point4_content .col2, #form_point2_content .form_col2 .automobiles
+            font-size: 5vw
+        #form_point2_content .form_col1 .automobiles
+            font-size: 8vw
+            margin-bottom: 3vw
+            font-weight: 400
+            font-style: italic
+        #form_point1_content .block_form_btn button, #form_point3_content .block_form_btn button, #form_point2_content .block_form_btn button, #form_point4_content .block_form_btn button
+            font-size: 4vw
+            width: 90vw
+            height: 8vw
+        #form_point2_content .block_form_btn button, #form_point3_content .block_form_btn button, #form_point4_content .block_form_btn button
+            margin-bottom: 8vw
+        #form_point1_content .block_form_2send
+            height: 8vw
+            width: 50vw
+        #form_point1_content .block_form_2send input, #form_point3_content .block_form_2send input, #form_point1_content .block_form_2send button, #form_point3_content .block_form_2send button,         .form_progress li span, #form_point1_content .block_form_content_header, #form_point3_content .block_form_content_header, #form_point1_content .block_form_content_inputs label, #form_point3_content .block_form_content_inputs label, #form_point3_content .checkbox label, #form_point3_content a.contract,#form_point4_content .block_form_content_header, #form_point2_content .block_form_content_header
+            font-size: 4vw
+        #form_point4_content .point4_comment
+            font-size: 5vw
+            text-align: center
+            width: 70vw
+        #form_point2_content .form_col1 .about-automobile, #form_point2_content .form_total
+            font-size: 5vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month span, #form_point2_content .form_col2 .calendar .calendar_dates-wrap .full_date, #form_point2_content .form_col2 .calendar_comment+span, #form_point2_content .form_col2 .calendar_comment>span
+            font-size: 4vw
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap, #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date span
+            font-size: 4vw
+        .form_content-wrap
+            height: 125vw
+        #form_point2_content .form_content-wrap
+            height: 320vw
+        .block_form_content_inputs.flex-row
+            flex-wrap: wrap
+        #form_point1_content .inputs_col1, #form_point3_content .inputs_col1, #form_point1_content .inputs_col2, #form_point3_content .inputs_col2
+            width: 100%
+        #form_point1_content .block_form_content_inputs>div>input, #form_point3_content .block_form_content_inputs>div>input
+            width: 100%
+        #form_point1_content .checkbox, #form_point3_content .checkbox
+            padding-left: 0
+        #form_point1_content .checkbox-wrap, #form_point3_content .checkbox-wrap, #form_point1_content input[type=checkbox], #form_point3_content input[type=checkbox]
+            top: 1.3vw 
+            height: 2vw
+            width: 2vw
+        #form_point3_content .checkbox label
+            padding-left: 4vw
+        #form_point4_content
+            margin-left: 5vw
+            margin-right: 5vw
+        #form_point1_content .block_form_content_inputs label, #form_point3_content .block_form_content_inputs label
+            margin-left: 4vw
+        #form_point2_content .form_content-wrap>.flex-row
+            flex-wrap: wrap
+            .form_col1, .form_col2
+                width: 100%
+        #form_point4_content .form_content-wrap .flex-row
+            flex-wrap: wrap
+            .col1, .col2
+                width: 100%
+                margin-left: 17vw
+        #form_point2_content .form_point2-automobile.active, .block_form #form_point2_content .automobiles.flex-row
+            width: 100%
+            flex-wrap: wrap
+        #form_point2_content .form_col1 .form_point2-automobile .about-automobile
+            width: 100%
+            height: 32vw
+            padding: 7vw
+        #form_point2_content .form_col1 .form_point2-automobile img
+            width: 100%
+            height: auto
+        #form_point3_content .checkbox
+            width: 80vw
+        .automobiles .point2_header
+            display: none
+        .automobiles .point2_header.active
+            display: block
+        ul.automobiles
+            flex-wrap: wrap
+            li
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                width: 90vw
+        ul.automobiles li .before.active
+            background-image: url(../img/play-button-l.svg)
+            background-size: cover
+            background-position: center center
+            content: ""
+            margin-top: .8vh
+            width: 7vw
+            height: 7vw
+            cursor: pointer
+            display: block
+        ul.automobiles li .after.active
+            background-image: url(../img/play-button-r.svg)
+            background-size: cover
+            background-position: center center
+            content: ""
+            margin-top: .8vh
+            width: 7vw
+            height: 7vw
+            cursor: pointer
+            display: block
+        #form_point2_content .form_point2-automobile.active, #form_point2_content .automobiles.flex-row, #form_point2_content .form_col2 .block_form_content_header
+            width: 90vw
+        #form_point2_content .form_total
+            width: 90vw
+            .total_h
+                height: 13vw
+                span
+                    margin-right: 4vw 
+        #form_point2_content .form_col2 .calendar_comments
+            width: 75vw
+            flex-wrap: wrap
+            .calendar_comments-wrap
+                width: 50%
+                margin-top: 2vw
+                justify-content: flex-start
+                align-items: center
+                .calendar_comment
+                    width: 10vw
+                .calendar_comment+span
+                    margin-left: 2vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes .calendar_month
+            height: 14vw 
+            width: 33%  
+            span
+                margin: 5vw auto
+        #form_point2_content .form_col2 .calendar
+            flex-wrap: wrap
+            width: 75vw
+        #form_point2_content .form_col2 .calendar .calendar_monthes, #form_point2_content .form_col2 .calendar .calendar_dates-wrap
+            width: 100%   
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .full_date
+            height: 4.5vw
+            padding: 2.8vw
+        #form_point2_content .form_col2 .calendar .calendar_dates-wrap .d_o_w-wrap
+            height: 6.5vw
+            font-size: 3vw
+            font-weight: 400
+            justify-content: space-around
+            .d_o_w
+                width: 5vw
+                margin: 1vw auto
+        #form_point2_content .form_col2 .calendar .calendar_dates .calendar_date, #form_point2_content .form_col2 .calendar_comment
+            width: 13.5%
+            height: 9vw
+            span
+                margin: 2vw 0
+        #form_point2_content .form_col2 .block_form_content_header
+            margin: 5vw 0
+.footer
+    .footer_container
+        height: 12vw
+        align-items: center
+    img.dark_logo
+        width: 14vw
+    .footer_about
+        font: italic 400 1.37vw Monitorica
+        color: #2c2c2c
+        justify-content: center
+    .footer_contacts
+        font: italic 400 1.37vw Monitorica
+        color: #2c2c2c
+        height: 8vw
+        justify-content: space-between
+        align-items: flex-end
+        .footer_socials
+            img
+                width: 0.9vw
+                margin-left: 0.7vw
+        .footer_contacts_numbers
+            a
+                color: $text
+            img
+                width: 1.3vw
+        .footer_contacts_mail a
+            color: $text
+            text-decoration: underline
+        /*media*/
+    @media (max-width: 1366px)
+        margin: 0 15vw
+        img.dark_logo
+            width: 16.8vw
+        .footer_about, .footer_contacts
+            font-size: 1.64vw
+        .footer_container
+            height: 15vw
+        .footer_contacts
+            height: 10vw
+    @media (max-width: 1024px)
+        margin: 0 8vw
+        img.dark_logo
+            width: 20.16vw
+        .footer_about, .footer_contacts
+            font-size: 1.97vw
+        .footer_container
+            height: 15vw
+        .footer_contacts
+            height: 12vw
+        .footer_contacts .footer_contacts_numbers img
+            width: 1.5vw
+        .footer_contacts .footer_socials img
+            width: 1.5vw
+    @media (max-width: 768px)
+        margin: 0 5vw
+        img.dark_logo
+            width: 24.2vw
+        .footer_contacts .footer_contacts_numbers img
+            width: 2vw
+        .footer_contacts .footer_socials img
+            width: 2vw
+        .footer_about, .footer_contacts
+            font-size: 2.37vw
+        .footer_container
+            height: 20vw
+        .footer_contacts
+            height: 15vw        
+    @media (max-width: 420px)
+        margin: 0 10vw
+        .footer_container
+            flex-wrap: wrap-reverse
+            justify-content: flex-end
+            height: 100vw
+        .footer_contacts
+            height: 40vw
+        img.dark_logo
+            width: 80vw
+            margin: 0 auto
+        .footer_about
+            display: none
+        .footer_about, .footer_contacts
+            font-size: 6vw
+        .footer_contacts .footer_contacts_numbers img
+            width: 5vw
+        .footer_contacts .footer_socials img
+            width: 5vw
+.dark_line
+    background-color: #16171e
+    .dark_line_container
+        height: 25.3vh
+        align-items: center
+        margin: 0 17.5vw
+        height: 2.5vh
+        font: italic 400 0.74vw Monitorica
+        span
+            width: 100%
+            text-align: right
+@media (max-width: 1920px)
+    .block9 .scedule .d-line
+        left: -0.1vw
+@media (max-width: 1366px)
+    .block9 .scedule .d-line
+        left: -0.15vw
+@media (max-width: 1200px)
+    .block9 .scedule .d-line
+        left: -0.17vw
+@media (max-width: 420px)
+    .block9 .scedule .d-line
+        left: -0.5vw
+
