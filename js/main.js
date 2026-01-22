@@ -126,6 +126,18 @@ function delegateEvent(parent, event, selector, handler) {
     });
 }
 
+// Lazy load images from data-src
+function loadLazyImages(container) {
+    if (!container) return;
+    var lazyImages = container.querySelectorAll('img[data-src]');
+    lazyImages.forEach(function(img) {
+        if (img.dataset.src && !img.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        }
+    });
+}
+
 // Wait for DOM to be ready
 document.addEventListener('DOMContentLoaded', function() {
     //tabs
@@ -135,7 +147,11 @@ document.addEventListener('DOMContentLoaded', function() {
         var l_id = this.getAttribute('id');
         var c_id = '#' + l_id + "-content";
         $$('.bl7-content').forEach(el => el.classList.remove('active'));
-        $(c_id).classList.add('active');
+        var activeContent = $(c_id);
+        if (activeContent) {
+            activeContent.classList.add('active');
+            loadLazyImages(activeContent);
+        }
     });
 
     delegateEvent(document, 'click', '.block7 .before', function() {
@@ -158,7 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 var l_id = prev.getAttribute('id');
                 var c_id = '#' + l_id + "-content";
                 $$('.bl7-content').forEach(el => el.classList.remove('active'));
-                $(c_id).classList.add('active');
+                var activeContent = $(c_id);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                    loadLazyImages(activeContent);
+                }
             }
         }
     });
@@ -182,7 +202,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 var l_id = next.getAttribute('id');
                 var c_id = '#' + l_id + "-content";
                 $$('.bl7-content').forEach(el => el.classList.remove('active'));
-                $(c_id).classList.add('active');
+                var activeContent = $(c_id);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                    loadLazyImages(activeContent);
+                }
             }
         }
     });
@@ -194,7 +218,11 @@ document.addEventListener('DOMContentLoaded', function() {
         var l_id = this.getAttribute('id');
         var c_id = '#' + l_id + "-content";
         $$('.form_point2-automobile').forEach(el => el.classList.remove('active'));
-        $(c_id).classList.add('active');
+        var activeContent = $(c_id);
+        if (activeContent) {
+            activeContent.classList.add('active');
+            loadLazyImages(activeContent);
+        }
     });
 
     delegateEvent(document, 'click', '.block_form .before', function() {
@@ -217,7 +245,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 var l_id = prev.getAttribute('id');
                 var c_id = '#' + l_id + "-content";
                 $$('.form_point2-automobile').forEach(el => el.classList.remove('active'));
-                $(c_id).classList.add('active');
+                var activeContent = $(c_id);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                    loadLazyImages(activeContent);
+                }
             }
         }
     });
@@ -241,7 +273,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 var l_id = next.getAttribute('id');
                 var c_id = '#' + l_id + "-content";
                 $$('.form_point2-automobile').forEach(el => el.classList.remove('active'));
-                $(c_id).classList.add('active');
+                var activeContent = $(c_id);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                    loadLazyImages(activeContent);
+                }
             }
         }
     });
@@ -667,4 +703,6 @@ document.addEventListener('DOMContentLoaded', function() {
         startDelay: 1000,
         loop: false
     });
+
+    // First tab images are loaded immediately, no need to load them again
 });
