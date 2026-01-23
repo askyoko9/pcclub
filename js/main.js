@@ -11,16 +11,16 @@ function animate(element, properties, duration, callback) {
     const start = {};
     const change = {};
     const startTime = performance.now();
-    
+
     for (let prop in properties) {
         start[prop] = parseFloat(getComputedStyle(element)[prop]) || 0;
         change[prop] = parseFloat(properties[prop]) - start[prop];
     }
-    
+
     function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         for (let prop in properties) {
             if (prop === 'opacity') {
                 element.style.opacity = start[prop] + change[prop] * progress;
@@ -49,14 +49,14 @@ function animate(element, properties, duration, callback) {
                 element.style[prop] = (start[prop] + change[prop] * progress) + 'px';
             }
         }
-        
+
         if (progress < 1) {
             requestAnimationFrame(update);
         } else if (callback) {
             callback();
         }
     }
-    
+
     requestAnimationFrame(update);
 }
 
@@ -105,7 +105,7 @@ function smoothScrollTo(element, duration) {
 
 // Event delegation helper
 function delegateEvent(parent, event, selector, handler) {
-    parent.addEventListener(event, function(e) {
+    parent.addEventListener(event, function (e) {
         var target = e.target;
         // Use closest to find the matching element
         if (target.closest) {
@@ -130,7 +130,7 @@ function delegateEvent(parent, event, selector, handler) {
 function loadLazyImages(container) {
     if (!container) return;
     var lazyImages = container.querySelectorAll('img[data-src]');
-    lazyImages.forEach(function(img) {
+    lazyImages.forEach(function (img) {
         if (img.dataset.src && !img.src) {
             img.src = img.dataset.src;
             img.removeAttribute('data-src');
@@ -139,27 +139,50 @@ function loadLazyImages(container) {
 }
 
 // Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-    //tabs
-    delegateEvent(document, 'click', '.block7 .b_header', function() {
-        $$('.block7 .b_header').forEach(el => el.classList.remove('active'));
-        this.classList.add('active');
+document.addEventListener('DOMContentLoaded', function () {
+    // Block7 tabs - только переключение классов
+    delegateEvent(document, 'click', '.block7 .b_header', function (e) {
+        e.preventDefault();
+
+        // Получаем ID нужного контента
         var l_id = this.getAttribute('id');
         var c_id = '#' + l_id + "-content";
+
+        // Сначала удаляем active со всех заголовков и стрелок
+        $$('.block7 .b_header').forEach(el => el.classList.remove('active'));
+        $$('.block7 .before').forEach(el => el.classList.remove('active'));
+        $$('.block7 .after').forEach(el => el.classList.remove('active'));
+
+        // Добавляем active текущему заголовку
+        this.classList.add('active');
+
+        // Активируем стрелки текущего элемента
+        const parentLi = this.closest('li');
+        if (parentLi) {
+            const before = parentLi.querySelector('.before');
+            const after = parentLi.querySelector('.after');
+            if (before) before.classList.add('active');
+            if (after) after.classList.add('active');
+        }
+
+        // Удаляем active со всех контентов
         $$('.bl7-content').forEach(el => el.classList.remove('active'));
-        var activeContent = $(c_id);
+
+        // Добавляем active нужному контенту
+        const activeContent = document.querySelector(c_id);
+        console.log(c_id, activeContent);
         if (activeContent) {
             activeContent.classList.add('active');
-            loadLazyImages(activeContent);
         }
+
+        return false;
     });
 
-    delegateEvent(document, 'click', '.block7 .before', function() {
+    delegateEvent(document, 'click', '.block7 .before', function () {
         var activeHeader = $('.block7 .b_header.active');
         if (!activeHeader) return;
         var active_bh_id = '#' + activeHeader.getAttribute('id');
         if (active_bh_id != "#1-link") {
-            console.log(active_bh_id);
             $$('.block7 .b_header').forEach(el => el.classList.remove('active'));
             $$('.block7 .before').forEach(el => el.classList.remove('active'));
             $$('.block7 .after').forEach(el => el.classList.remove('active'));
@@ -177,13 +200,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 var activeContent = $(c_id);
                 if (activeContent) {
                     activeContent.classList.add('active');
-                    loadLazyImages(activeContent);
                 }
             }
         }
     });
 
-    delegateEvent(document, 'click', '.block7 .after', function() {
+    delegateEvent(document, 'click', '.block7 .after', function () {
         var activeHeader = $('.block7 .b_header.active');
         if (!activeHeader) return;
         var active_bh_id = '#' + activeHeader.getAttribute('id');
@@ -205,32 +227,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 var activeContent = $(c_id);
                 if (activeContent) {
                     activeContent.classList.add('active');
-                    loadLazyImages(activeContent);
                 }
             }
         }
     });
 
-    //form-tabs
-    delegateEvent(document, 'click', '.point2_header', function() {
+    // Form tabs - только переключение классов
+    delegateEvent(document, 'click', '.point2_header', function () {
         $$('.point2_header').forEach(el => el.classList.remove('active'));
         this.classList.add('active');
         var l_id = this.getAttribute('id');
         var c_id = '#' + l_id + "-content";
+
         $$('.form_point2-automobile').forEach(el => el.classList.remove('active'));
+
         var activeContent = $(c_id);
+        console.log(c_id);
         if (activeContent) {
             activeContent.classList.add('active');
-            loadLazyImages(activeContent);
         }
     });
 
-    delegateEvent(document, 'click', '.block_form .before', function() {
+    delegateEvent(document, 'click', '.block_form .before', function () {
         var activeHeader = $('.block_form .point2_header.active');
         if (!activeHeader) return;
         var active_bh_id = '#' + activeHeader.getAttribute('id');
-        if (active_bh_id != "#1form-tab") {
-            console.log(active_bh_id);
+        if (active_bh_id != "#form-tab1") {
             $$('.block_form .point2_header').forEach(el => el.classList.remove('active'));
             $$('.block_form .before').forEach(el => el.classList.remove('active'));
             $$('.block_form .after').forEach(el => el.classList.remove('active'));
@@ -248,17 +270,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 var activeContent = $(c_id);
                 if (activeContent) {
                     activeContent.classList.add('active');
-                    loadLazyImages(activeContent);
                 }
             }
         }
     });
 
-    delegateEvent(document, 'click', '.block_form .after', function() {
+    delegateEvent(document, 'click', '.block_form .after', function () {
         var activeHeader = $('.block_form .point2_header.active');
         if (!activeHeader) return;
         var active_bh_id = '#' + activeHeader.getAttribute('id');
-        if (active_bh_id != "#3form-tab") {
+        if (active_bh_id != "#form-tab3") {
             $$('.block_form .point2_header').forEach(el => el.classList.remove('active'));
             $$('.block_form .before').forEach(el => el.classList.remove('active'));
             $$('.block_form .after').forEach(el => el.classList.remove('active'));
@@ -276,14 +297,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 var activeContent = $(c_id);
                 if (activeContent) {
                     activeContent.classList.add('active');
-                    loadLazyImages(activeContent);
                 }
             }
         }
     });
 
     //video
-    delegateEvent(document, 'click', '.play_btn-wrap', function() {
+    delegateEvent(document, 'click', '.play_btn-wrap', function () {
         var video = $('#cvideo');
         if (!video) return;
         var src = video.getAttribute('src');
@@ -295,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //calendar
-    delegateEvent(document, 'click', '.calendar_month.available', function() {
+    delegateEvent(document, 'click', '.calendar_month.available', function () {
         $$('.calendar_month').forEach(el => el.classList.remove('active'));
         this.classList.add('active');
         var month = this.getAttribute('id');
@@ -304,17 +324,17 @@ document.addEventListener('DOMContentLoaded', function() {
         $(sel_month).classList.add('active');
     });
 
-    delegateEvent(document, 'click', '.calendar_date.available', function() {
+    delegateEvent(document, 'click', '.calendar_date.available', function () {
         this.classList.add('active');
     });
 
-    delegateEvent(document, 'click', '.calendar_date.active', function() {
+    delegateEvent(document, 'click', '.calendar_date.active', function () {
         this.classList.remove('active');
     });
 
     //scroll
-    $$('a[href^="#"]').forEach(function(link) {
-        link.addEventListener('click', function(event) {
+    $$('a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (event) {
             event.preventDefault();
             var sc = this.getAttribute("href");
             var target = $(sc);
@@ -325,12 +345,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //menu
-    delegateEvent(document, 'click', '.menu a', function() {
+    delegateEvent(document, 'click', '.menu a', function () {
         $$('.menu a').forEach(el => el.classList.remove('active'));
         this.classList.add('active');
     });
 
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", function () {
         if (window.pageYOffset > 0) {
             $('.menu').classList.add('fixed');
         } else {
@@ -341,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var menu_selector = ".menu";
     function onScroll() {
         var scroll_top = window.pageYOffset || document.documentElement.scrollTop;
-        $$(menu_selector + " a").forEach(function(link) {
+        $$(menu_selector + " a").forEach(function (link) {
             var hash = link.getAttribute("href");
             var target = $(hash);
             if (target) {
@@ -361,8 +381,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener("scroll", onScroll);
-    $$("a[href^='#']").forEach(function(link) {
-        link.addEventListener('click', function(e) {
+    $$("a[href^='#']").forEach(function (link) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             window.removeEventListener("scroll", onScroll);
             $$(menu_selector + " a.active").forEach(el => el.classList.remove("active"));
@@ -371,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var target = $(hash);
             if (target) {
                 smoothScrollTo(target, 500);
-                setTimeout(function() {
+                setTimeout(function () {
                     window.location.hash = hash;
                     window.addEventListener("scroll", onScroll);
                 }, 500);
@@ -380,320 +400,151 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //message animations
-    var show1 = true;
-    var countbox = ".block2 .quote";
-    function checkScroll1() {
-        if (!show1) return false;
-        var countboxEl = $(countbox);
-        if (!countboxEl) return;
-        var w_top = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top = rect.top + w_top;
-        var w_height = window.innerHeight;
-        var d_height = document.documentElement.scrollHeight;
-        var e_height = countboxEl.offsetHeight;
-        if (w_top + 500 >= e_top || w_height + w_top == d_height || e_height + e_top < w_height) {
-            var quote = $(".block2 .quote");
-            var name = $(".block2 .name");
-            var who = $(".block2 .who");
-            if (quote) animate(quote, { opacity: '1' }, 500);
-            setTimeout(function() {
+    const quoteConfigs = [
+        ".block2", ".block4", ".block6", ".block8", ".block10"
+    ];
+
+    const hasWho = [true, true, true, true, false]; // последний без .who
+
+    function checkQuotesScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        quoteConfigs.forEach((selector, i) => {
+            // уже показан
+            if (window[`quoteShown${i}`] === false) return;
+
+            const container = $(selector);
+            if (!container) return;
+
+            const quote = container.querySelector(".quote");
+            const name = container.querySelector(".name");
+            const who = hasWho[i] ? container.querySelector(".who") : null;
+
+            if (!quote) return;
+
+            const rect = quote.getBoundingClientRect();
+            const top = rect.top + scrollTop;
+
+            if (scrollTop + 500 < top &&
+                scrollTop + windowHeight < docHeight &&
+                top + quote.offsetHeight > windowHeight) {
+                return;
+            }
+
+            animate(quote, { opacity: '1' }, 500);
+
+            setTimeout(() => {
                 if (name) animate(name, { opacity: '1' }, 500);
                 if (who) animate(who, { opacity: '1' }, 500);
             }, 500);
-            show1 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll1);
-    window.addEventListener("load", checkScroll1);
 
-    var show2 = true;
-    var countbox2 = ".block4 .quote";
-    function checkScroll2() {
-        if (!show2) return false;
-        var countboxEl = $(countbox2);
-        if (!countboxEl) return;
-        var w_top2 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top2 = rect.top + w_top2;
-        var w_height2 = window.innerHeight;
-        var d_height2 = document.documentElement.scrollHeight;
-        var e_height2 = countboxEl.offsetHeight;
-        if (w_top2 + 500 >= e_top2 || w_height2 + w_top2 == d_height2 || e_height2 + e_top2 < w_height2) {
-            var quote = $(".block4 .quote");
-            var name = $(".block4 .name");
-            var who = $(".block4 .who");
-            if (quote) animate(quote, { opacity: '1' }, 500);
-            setTimeout(function() {
-                if (name) animate(name, { opacity: '1' }, 500);
-                if (who) animate(who, { opacity: '1' }, 500);
-            }, 500);
-            show2 = false;
-        }
+            window[`quoteShown${i}`] = false;
+        });
     }
-    window.addEventListener("scroll", checkScroll2);
-    window.addEventListener("load", checkScroll2);
 
-    var show3 = true;
-    var countbox3 = ".block6 .quote";
-    function checkScroll3() {
-        if (!show3) return false;
-        var countboxEl = $(countbox3);
-        if (!countboxEl) return;
-        var w_top3 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top3 = rect.top + w_top3;
-        var w_height3 = window.innerHeight;
-        var d_height3 = document.documentElement.scrollHeight;
-        var e_height3 = countboxEl.offsetHeight;
-        if (w_top3 + 500 >= e_top3 || w_height3 + w_top3 == d_height3 || e_height3 + e_top3 < w_height3) {
-            var quote = $(".block6 .quote");
-            var name = $(".block6 .name");
-            var who = $(".block6 .who");
-            if (quote) animate(quote, { opacity: '1' }, 500);
-            setTimeout(function() {
-                if (name) animate(name, { opacity: '1' }, 500);
-                if (who) animate(who, { opacity: '1' }, 500);
-            }, 500);
-            show3 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll3);
-    window.addEventListener("load", checkScroll3);
+    window.addEventListener("scroll", checkQuotesScroll);
+    window.addEventListener("load", checkQuotesScroll);
 
-    var show4 = true;
-    var countbox4 = ".block8 .quote";
-    function checkScroll4() {
-        if (!show4) return false;
-        var countboxEl = $(countbox4);
-        if (!countboxEl) return;
-        var w_top4 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top4 = rect.top + w_top4;
-        var w_height4 = window.innerHeight;
-        var d_height4 = document.documentElement.scrollHeight;
-        var e_height4 = countboxEl.offsetHeight;
-        if (w_top4 + 500 >= e_top4 || w_height4 + w_top4 == d_height4 || e_height4 + e_top4 < w_height4) {
-            var quote = $(".block8 .quote");
-            var name = $(".block8 .name");
-            var who = $(".block8 .who");
-            if (quote) animate(quote, { opacity: '1' }, 500);
-            setTimeout(function() {
-                if (name) animate(name, { opacity: '1' }, 500);
-                if (who) animate(who, { opacity: '1' }, 500);
-            }, 500);
-            show4 = false;
-        }
+    //debounce
+    function debounce(fn, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                fn(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
-    window.addEventListener("scroll", checkScroll4);
-    window.addEventListener("load", checkScroll4);
 
-    var show5 = true;
-    var countbox5 = ".block10 .quote";
-    function checkScroll5() {
-        if (!show5) return false;
-        var countboxEl = $(countbox5);
-        if (!countboxEl) return;
-        var w_top5 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top5 = rect.top + w_top5;
-        var w_height5 = window.innerHeight;
-        var d_height5 = document.documentElement.scrollHeight;
-        var e_height5 = countboxEl.offsetHeight;
-        if (w_top5 + 500 >= e_top5 || w_height5 + w_top5 == d_height5 || e_height5 + e_top5 < w_height5) {
-            var quote = $(".block10 .quote");
-            var name = $(".block10 .name");
-            if (quote) animate(quote, { opacity: '1' }, 500);
-            setTimeout(function() {
-                if (name) animate(name, { opacity: '1' }, 500);
-            }, 500);
-            show5 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll5);
-    window.addEventListener("load", checkScroll5);
+    window.addEventListener("scroll", debounce(checkQuotesScroll, 80));
 
     //days
-    var show61 = true;
-    function checkScroll61() {
-        if (!show61) return false;
-        var days = $$(".scedule>.day");
-        if (days.length === 0) return;
-        var countboxEl = days[0];
-        var w_top61 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top61 = rect.top + w_top61;
-        var w_height61 = window.innerHeight;
-        var d_height61 = document.documentElement.scrollHeight;
-        var e_height61 = countboxEl.offsetHeight;
-        if (w_top61 + 400 >= e_top61 || w_height61 + w_top61 == d_height61 || e_height61 + e_top61 < w_height61) {
-            var day = days[0];
-            var dline = $(".d-line");
-            var span = day.querySelector(".d-text>span");
-            if (day) animate(day, { opacity: '1' }, 500);
-            if (dline) {
-                dline.style.transition = 'height 0.5s';
-                dline.style.height = '20%';
-            }
-            setTimeout(function() {
-                if (span) animate(span, { color: '#c0d500' }, 500);
-            }, 500);
-            show61 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll61);
-    window.addEventListener("load", checkScroll61);
+    const heights = ['20%', '38%', '58%', '80%', '100%'];
 
-    var show62 = true;
-    function checkScroll62() {
-        if (!show62) return false;
-        var days = $$(".scedule>.day");
-        if (days.length < 2) return;
-        var countboxEl = days[1];
-        var w_top62 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top62 = rect.top + w_top62;
-        var w_height62 = window.innerHeight;
-        var d_height62 = document.documentElement.scrollHeight;
-        var e_height62 = countboxEl.offsetHeight;
-        if (w_top62 + 400 >= e_top62 || w_height62 + w_top62 == d_height62 || e_height62 + e_top62 < w_height62) {
-            var day = days[1];
-            var dline = $(".d-line");
-            var span = day.querySelector(".d-text>span");
-            if (day) animate(day, { opacity: '1' }, 500);
-            if (dline) {
-                dline.style.transition = 'height 0.5s';
-                dline.style.height = '38%';
-            }
-            setTimeout(function() {
-                if (span) animate(span, { color: '#c0d500' }, 500);
-            }, 500);
-            show62 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll62);
-    window.addEventListener("load", checkScroll62);
+    function checkScheduleScroll() {
+        const days = $$(".scedule > .day");
+        if (!days.length) return;
 
-    var show63 = true;
-    function checkScroll63() {
-        if (!show63) return false;
-        var days = $$(".scedule>.day");
-        if (days.length < 3) return;
-        var countboxEl = days[2];
-        var w_top63 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top63 = rect.top + w_top63;
-        var w_height63 = window.innerHeight;
-        var d_height63 = document.documentElement.scrollHeight;
-        var e_height63 = countboxEl.offsetHeight;
-        if (w_top63 + 400 >= e_top63 || w_height63 + w_top63 == d_height63 || e_height63 + e_top63 < w_height63) {
-            var day = days[2];
-            var dline = $(".d-line");
-            var span = day.querySelector(".d-text>span");
-            if (day) animate(day, { opacity: '1' }, 500);
-            if (dline) {
-                dline.style.transition = 'height 0.5s';
-                dline.style.height = '58%';
-            }
-            setTimeout(function() {
-                if (span) animate(span, { color: '#c0d500' }, 500);
-            }, 500);
-            show63 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll63);
-    window.addEventListener("load", checkScroll63);
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const wHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
 
-    var show64 = true;
-    function checkScroll64() {
-        if (!show64) return false;
-        var days = $$(".scedule>.day");
-        if (days.length < 4) return;
-        var countboxEl = days[3];
-        var w_top64 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top64 = rect.top + w_top64;
-        var w_height64 = window.innerHeight;
-        var d_height64 = document.documentElement.scrollHeight;
-        var e_height64 = countboxEl.offsetHeight;
-        if (w_top64 + 400 >= e_top64 || w_height64 + w_top64 == d_height64 || e_height64 + e_top64 < w_height64) {
-            var day = days[3];
-            var dline = $(".d-line");
-            var span = day.querySelector(".d-text>span");
-            if (day) animate(day, { opacity: '1' }, 500);
-            if (dline) {
-                dline.style.transition = 'height 0.5s';
-                dline.style.height = '80%';
-            }
-            setTimeout(function() {
-                if (span) animate(span, { color: '#c0d500' }, 500);
-            }, 500);
-            show64 = false;
-        }
-    }
-    window.addEventListener("scroll", checkScroll64);
-    window.addEventListener("load", checkScroll64);
+        const dline = $(".d-line");
+        const beginLine = $(".scedule-begin-line");
 
-    var show65 = true;
-    function checkScroll65() {
-        if (!show65) return false;
-        var days = $$(".scedule>.day");
-        if (days.length < 5) return;
-        var countboxEl = days[4];
-        var w_top65 = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = countboxEl.getBoundingClientRect();
-        var e_top65 = rect.top + w_top65;
-        var w_height65 = window.innerHeight;
-        var d_height65 = document.documentElement.scrollHeight;
-        var e_height65 = countboxEl.offsetHeight;
-        if (w_top65 + 400 >= e_top65 || w_height65 + w_top65 == d_height65 || e_height65 + e_top65 < w_height65) {
-            var day = days[4];
-            var dline = $(".d-line");
-            var span = day.querySelector(".d-text>span");
-            var beginLine = $(".scedule-begin-line");
-            if (day) animate(day, { opacity: '1' }, 500);
+        for (let i = 0; i < heights.length; i++) {
+            if (days.length <= i) break;
+            if (window[`shown${i}`] === false) continue;  
+
+            const day = days[i];
+            const rect = day.getBoundingClientRect();
+            const top = rect.top + scrollTop;
+
+            if (scrollTop + 400 < top &&
+                scrollTop + wHeight < docHeight &&
+                top + day.offsetHeight > wHeight) continue;
+
+            const span = day.querySelector(".d-text > span");
+
+            animate(day, { opacity: '1' }, 500);
             if (dline) {
                 dline.style.transition = 'height 0.5s';
-                dline.style.height = '100%';
+                dline.style.height = heights[i];
             }
-            setTimeout(function() {
+
+            setTimeout(() => {
                 if (span) animate(span, { color: '#c0d500' }, 500);
             }, 500);
-            setTimeout(function() {
-                if (beginLine) animate(beginLine, { backgroundColor: '#c0d500' }, 500);
-            }, 2500);
-            show65 = false;
+
+            if (i === 4 && beginLine) {
+                setTimeout(() => {
+                    animate(beginLine, { backgroundColor: '#c0d500' }, 500);
+                }, 2500);
+            }
+
+            window[`shown${i}`] = false;
         }
     }
-    window.addEventListener("scroll", checkScroll65);
-    window.addEventListener("load", checkScroll65);
+
+    window.addEventListener("scroll", checkScheduleScroll);
+    window.addEventListener("load", checkScheduleScroll);
 
     //Form
-    delegateEvent(document, 'click', '#form_point1_content .block_form_btn', function() {
-        $$('.block_form_content').forEach(el => el.classList.remove('active'));
-        $$('.form_progress li').forEach(el => el.classList.remove('active'));
-        $('#form_point2_content').classList.add('active');
-        $('#form_point1').classList.remove('active');
-        $('#form_point2').classList.add('active');
-        $('#form_point1').classList.add('passed');
-    });
+    const formSteps = [
+        { currentContent: '#form_point1_content', nextContent: '#form_point2_content', currentStep: '#form_point1', nextStep: '#form_point2' },
+        { currentContent: '#form_point2_content', nextContent: '#form_point3_content', currentStep: '#form_point2', nextStep: '#form_point3' },
+        { currentContent: '#form_point3_content', nextContent: '#form_point4_content', currentStep: '#form_point3', nextStep: '#form_point4' }
+        // если будет form_point5 → просто добавить объект
+    ];
+    delegateEvent(document, 'click', '.block_form_btn', function (e) {
+        // Проверяем, что кликнули внутри нужного активного контента
+        const currentActiveContent = $('.block_form_content.active');
+        if (!currentActiveContent) return;
 
-    delegateEvent(document, 'click', '#form_point2_content .block_form_btn', function() {
-        $$('.block_form_content').forEach(el => el.classList.remove('active'));
-        $$('.form_progress li').forEach(el => el.classList.remove('active'));
-        $('#form_point3_content').classList.add('active');
-        $('#form_point2').classList.remove('active');
-        $('#form_point3').classList.add('active');
-        $('#form_point2').classList.add('passed');
-    });
+        // Находим, какой это шаг (по селектору текущего активного контента)
+        const stepIndex = formSteps.findIndex(step =>
+            step.currentContent === '#' + currentActiveContent.id
+        );
 
-    delegateEvent(document, 'click', '#form_point3_content .block_form_btn', function() {
+        if (stepIndex === -1) return; // кликнули не в наш шаг → игнорируем
+
+        const step = formSteps[stepIndex];
+
+        // Сбрасываем active у всех контентов и прогресса
         $$('.block_form_content').forEach(el => el.classList.remove('active'));
         $$('.form_progress li').forEach(el => el.classList.remove('active'));
-        $('#form_point4_content').classList.add('active');
-        $('#form_point3').classList.remove('active');
-        $('#form_point4').classList.add('active');
-        $('#form_point3').classList.add('passed');
+
+        // Активируем следующий контент и шаг
+        $(step.nextContent).classList.add('active');
+        $(step.nextStep).classList.add('active');
+
+        // Помечаем текущий как пройденный
+        $(step.currentStep).classList.add('passed');
+        $(step.currentStep).classList.remove('active');
     });
 
     //typed
@@ -703,6 +554,4 @@ document.addEventListener('DOMContentLoaded', function() {
         startDelay: 1000,
         loop: false
     });
-
-    // First tab images are loaded immediately, no need to load them again
 });
